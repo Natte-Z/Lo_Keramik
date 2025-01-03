@@ -9,45 +9,44 @@ body {
 
 /*---------------------------------------------------------------------Back to top button*/
 
-#scrollTopButton {
-	display: inline-block;
-	background-color: #d1bfa7;
-	width: 50px;
-	height: 50px;
-	text-align: center;
-	border-radius: 4px;
-	position: fixed;
-	bottom: 80px;
-	right: 30px;
-	transition: background-color .3s, opacity .5s, visibility .5s;
-	opacity: 0;
-	visibility: hidden;
-	z-index: 1000;
+/* Back to Top Button - General Styling */
+.backToTop {
+    position: fixed; /* Ensures the button stays in the bottom corner while scrolling */
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    right: 20px; /* Distance from the right of the viewport */
+    width: 50px; /* Button size */
+    height: 50px; /* Button size */
+    background-color: #3d3d3e; /* Dark gray background */
+    color: #fff; /* White icon color */
+    border: none; /* Removes default border */
+    border-radius: 50%; /* Makes it a circle */
+    display: flex; /* Centers the icon */
+    justify-content: center; /* Centers the icon horizontally */
+    align-items: center; /* Centers the icon vertically */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    cursor: pointer; /* Shows the button is interactive */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevents interaction when not visible */
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
 }
 
-#scrollTopButton::after {
-	content: "\f077";
-	font-family: FontAwesome;
-	font-weight: normal;
-	font-style: normal;
-	font-size: 2em;
-	line-height: 50px;
-	color: #f6f5f3;
+/* Show the button when scrolling */
+.backToTop.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Allow interaction */
 }
 
-#scrollTopButton:hover {
-	cursor: pointer;
-	background-color: #bd8c7d;
+/* Hover Effect */
+.backToTop:hover {
+    background-color: #7594ac; /* Lighter gray on hover */
 }
 
-#scrollTopButton:active {
-	background-color: #bd8c7d;
+/* Focus State */
+.backToTop:focus {
+    outline: none; /* Removes default focus outline */
+    box-shadow: 0 0 0 3px rgba(117, 148, 172, 0.5); /* Adds focus ring */
 }
 
-#scrollTopButton.show {
-	opacity: 1;
-	visibility: visible;
-}
 
 
 /*--------------------------------------------Colour*/
@@ -57,11 +56,19 @@ body {
 }
 
 .beige {
-	color: #d1bfa7;
+	color: #bcbcbb;
 }
 
-.rosa {
-	color: #bd8c7d;
+.eggshell {
+	color: #f2f3f1;
+}
+
+.blue {
+	color: #7594ac;
+}
+
+.grey {
+color: #3d3d3e
 }
 
 .header {
@@ -77,463 +84,313 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@200&display=swap');
 
-/*--------------------------------------------Header*/
+/*---------------------------------------------------------------------Header*/
 
-link {
-	display: none;
+/* Sticky Header Styling */
+.header {
+    position: sticky;
+    top: 0; /* Sticks to the very top of the viewport */
+    z-index: 1000; /* Ensures it stays above other elements */
+    background-color: #fff; /* Background to avoid transparency issues */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow effect */
 }
 
-header {
-	margin: 0;
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd; /* Optional separator */
 }
 
-.logo {
-	background: url("../images/logo.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 25%;
-	margin: 0;
-	padding: 0;
-	width: 27px;
-	min-height: 65px;
-	background-color: #fafafa;
+/* Logo styling */
+.logo-img {
+    height: 140px; /* Adjust as needed */
+    width: auto;  /* Maintain aspect ratio */
 }
 
-.title {
-	font-family: 'Montserrat', sans-serif;
-	color: #49494B;
-	margin: auto;
-	height: auto;
-	text-align: center;
-	width: auto;
-	padding-top: 15px;
-	font-size: 15px;
-}
-
-.nav-item {
-	font-family: 'Lora', sans-serif;
-	font-size: 15px;
-	padding: 0px;
-	margin-top: 10px;
-	color: #49494B;
-	background-color: #fafafa;
-}
-
+/* Navbar styling */
 .navbar-nav {
-	margin: auto;
+    gap: 20px; /* Spacing between nav items */
 }
 
+.nav-link {
+    text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+    font-size: 14px; /* Adjust font size */
+    font-weight: 1000; /* Make text semi-bold */
+    color: #3d3d3e; /* Text color */
+}
+
+.nav-link:hover {
+    color: #7594ac; /* Hover effect */
+}
+
+/*--------------------------------------------toggle button*/
+
+/* Style the toggle button */
+.navbar-toggler {
+    border: none; /* Remove default border */
+    background: none; /* Remove background color */
+    outline: none; /* Remove focus outline */
+    padding: 5px; /* Adjust padding for better spacing */
+}
+
+/* Style the hamburger icon */
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: #3d3d3e; /* Custom color for the bars */
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+/* Add lines to make a hamburger menu */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #3d3d3e; /* Same color as the main bar */
+    position: absolute;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px; /* Position above the middle bar */
+}
+
+.navbar-toggler-icon::after {
+    top: 8px; /* Position below the middle bar */
+}
+
+/* Change icon on hover */
+.navbar-toggler:hover .navbar-toggler-icon,
+.navbar-toggler:hover .navbar-toggler-icon::before,
+.navbar-toggler:hover .navbar-toggler-icon::after {
+    background-color: #7594ac; /* Hover color */
+}
+
+/* Animate toggle when expanded */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+/* Social Icon styling */
 .socialIconsHeader {
-	height: 25px;
-	padding-right: 20px;
+    margin-left: 20px;
 }
 
 .socialIconsHeader i {
-	text-align: center;
-	width: 30px;
-	font-size: 20px;
-	color: #49494B;
+    font-size: 20px; /* Larger icon size */
+    color: #3d3d3e; /* Default color */
+    transition: color 0.3s ease; /* Smooth hover transition */
 }
 
 .socialIconsHeader i:hover {
-	color: #bd8c7d;
+    color: #7594ac; /* Hover effect color */
 }
-
 
 /*---------------------------------------------------------------------------Links*/
 
 a {
-	color: #bd8c7d;
+	color: #7594ac;
 	text-decoration: none;
 	text-transform: uppercase;
 }
 
 a:hover {
-	color: #49494B;
+	color: #3d3d3e;
 }
 
-
-/*---------------------------------------------------------------------------StartPage*/
-
-.carouselExampleIndicators {
-	padding-top: 0px;
+/*---------------------------------------------------------------------------Image After Header*/
+/* Main Image Section */
+/* Main Image Section */
+.main-image-section {
+    width: 100%; /* Full width */
+    height: 70vh; /* Occupies 70% of the viewport height */
+    display: flex; /* Flexbox to center the image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Ensure cropping for the image */
+    position: relative; /* For better control over image positioning */
+    margin-top: 20px; /* Spacing from the header */
 }
 
-
-/* Carousel*/
-
-.carousel,
-.carousel-item,
-.carousel-item.active {
-	height: 100%;
+/* Main Image */
+.main-image {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Ensures cropping while maintaining aspect ratio */
+    object-position: center; /* Default: center the image */
+    transition: transform 0.3s ease; /* Smooth zoom-in/out effect */
 }
 
-.carousel-inner {
-	height: 100%;
+/* Show more of the left side on mobile */
+@media (max-width: 768px) {
+    .main-image {
+        object-position: left center; /* Focus on the left side of the image */
+    }
 }
 
-.carousel-item:nth-child(1) {
-	background-image: url("../images/amazon_disk.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
+/*---------------------------------------------------------------------------Description of workshop*/
+/* General Styling for the Text Section */
+.text-section {
+    padding: 40px 20px;
+    background-color: #fff; /* Optional background color */
+    border-top: 1px solid #ddd; /* Optional top divider */
+    border-bottom: 1px solid #ddd; /* Optional bottom divider */
 }
 
-.carousel-item:nth-child(2) {
-	background-image: url("../images/entre.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-    background-position: left center;
+/* Headings - Lora Font */
+.heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700; /* Bold */
+    color: #7594ac; /* Darker gray */ 
+    margin-bottom: 10px;
+    line-height: 1.4; /* Improved readability */
 }
 
-.carousel_height {
-	height: 550px;
+/* Paragraph Text - Montserrat Font */
+.text {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 400; /* Regular weight */
+    color: #3d3d3e; /* Medium gray */
+    line-height: 1.6; /* Increased spacing for better readability */
 }
 
-.introduction {
-	margin: 30px auto;
-	font-family: "Montserrat", sans-serif;
-	text-align: center;
-	font-size: 20px;
-}
-
-.startImageHolder {
-	height: auto;
-	display: flex;
-	justify-content: space-between;
-}
-
-.startimage {
-	height: 250px;
-	width: 70%;
-	margin: auto;
-	margin-bottom: 40px;
-}
-
-.omOssBild {
-	background-image: url("../images/gruppbild.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	vertical-align: middle;
-	text-align: center;
-	height: 100%;
-    width: 100%;
-    background-size: 100%;
-}
-
-.behandlingarBild {
-	background-image: url("../images/bild.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	vertical-align: middle;
-	text-align: center;
-	height: 100%;
-    width: 100%;
-    background-size: 100%;
-    /* background-size: cover;  this will looks nicer if we had a vertical picture */
-}
-
-.caption {
-	display: block;
-	font-family: "Montserrat", sans-serif;
-	color: #49494B;
-	text-transform: uppercase;
-	text-align: center;
-	font-size: 20px;
-	height: auto;
-}
-
+/* Button Styling */
 .bookButton {
-	font-size: 15px;
-	padding: 20px !important;
-	font-weight: bold;
-	background-color: #bd8c7d;
-	color: #fafafa;
+    background-color: #3d3d3e; /* Dark gray */
+    color: #fff; /* White text */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .bookButton:hover {
-	background-color: #D1BFA7;
-	color: #49494b;
+    background-color: #7594ac; /* Lighter gray for hover effect */
 }
 
-.hrStart {
-	width: 70%;
-	display: flex;
-	justify-content: center;
-	margin: 5%;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 20px; /* Slightly smaller heading for tablets */
+    }
+
+    .text {
+        font-size: 14px; /* Adjust text size for smaller screens */
+    }
+}
+/*----------------------------------------------------------------------------ABOUT*/
+
+/* General Styling for About Section */
+.about-section {
+    padding: 40px 0;
+    border-top: 1px solid #ddd; /* Optional divider line */
+    border-bottom: 1px solid #ddd; /* Optional divider line */
 }
 
-
-/*--------------------------------------------------------------------------TreatmentsPage*/
-
-#treatment {
-	width: auto;
-	color: #fafafa;
-	font-family: 'Montserrat', sans-serif;
-	margin: 0;
+/* Image Styling */
+.about-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    margin-bottom: 20px; /* Add space below the image for mobile */
 }
 
-#treatment h1 {
-	font-family: "lora", sans-serif;
-	color: #49494b;
-	font-weight: bold;
+/* Heading Styling */
+.about-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700; /* Bold */
+    color: #7594ac; /* Darker gray */
+    margin-bottom: 20px;
+    text-align: center; /* Center text for better mobile design */
 }
 
-.wrapper-img {
-	width: 100%;
-	padding-top: 100%;
-	z-index: 1;
+/* Text Styling */
+.about-text {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 400; /* Regular */
+    color: #3d3d3e; /* Medium gray */
+    line-height: 1.8; /* Better readability */
+    margin-bottom: 15px;
+    text-align: center; /* Center text for mobile design */
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    /* Stack the text below the image */
+    .about-section .row {
+        flex-direction: column; /* Stack columns vertically */
+    }
 
-/*--------------------------------------------Feet Rosa Part*/
+    /* Remove unnecessary margin for a cleaner layout */
+    .about-image {
+        margin-bottom: 30px;
+    }
 
-.foot {
-	background-color: #49494b;
-	width: 100%;
-	height: auto;
-	text-align: center;
-	color: #fafafa;
+    .about-heading {
+        font-size: 20px; /* Slightly smaller heading for mobile */
+    }
+
+    .about-text {
+        font-size: 14px; /* Adjust text size for smaller screens */
+    }
+}
+/*--------------------------------------------------------------------------InstagramAPI*/
+.instagram-section {
+    padding: 40px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
 }
 
-.nails {
-	height: inherit;
-	width: 100px;
-	background-color: #49494b;
+.instagram-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #3d3d3e;
+    margin-bottom: 20px;
 }
 
-.nailsImage {
-	background-image: url("../images/lucas-sankey-orFHTN5BBtM-unsplash.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%;
-	background-color: #49494b;
-	background-position: center;
+.instagram-feed img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
 }
 
-
-/*--------------------------------------------Coloring Sand Part*/
-
-.coloringHolder {
-	display: flex;
-	flex-direction: row-reverse;
-	padding-top: 60px;
-}
-
-.coloring {
-	background-color: #D1BFA7;
-	width: 100%;
-	text-align: center;
-	color: #49494b;
-}
-
-.coloringFlower {
-	height: inherit;
-	background-color: #D1BFA7;
-	width: 100px;
-}
-
-.coloringFlowerImage {
-	background-image: url("../images/mormor.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%;
-	background-color: #49494b;
-	background-position: center;
-}
-
-
-/*--------------------------------------------Massage Grey Part*/
-
-.facialHolder {
-	padding-top: 60px;
-}
-
-.facial {
-	background-color: #908C8C;
-	width: 100%;
-	text-align: center;
-	color: #fafafa;
-}
-
-.facialAmazon {
-	height: inherit;
-	background-color: #908C8C;
-	width: 100px;
-}
-
-.facialAmazonImage {
-	background-image: url("../images/andres-herrera-o-76B2bskcc-unsplash.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%;
-	background-color: #fafafa;
-	background-position: center;
-}
-
-.hrfacial {
-	width: 80%;
-	padding-top: 5px;
-	color: #fafafa;
-	display: flex;
-	justify-content: center;
-}
-
-.hrcoloring {
-	width: 30%;
-	padding-top: 5px;
-	color: #fafafa;
-	display: flex;
-	justify-content: center;
-}
-
-.hrTreatments {
-	width: 80%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 40px;
+.instagram-feed img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 
-/*---------------------------------------------------------------------Produkter*/
-
-.backgroundprodukter {
-	background-image: url("../images/micheile-henderson-bl4_Kv5Q5JQ-unsplash.jpg");
-	min-height: 600px;
-	background-size: cover;
-	background-position: center;
-}
-
-.produkter {
-	margin: 30px auto;
-	font-family: "Montserrat", sans-serif;
-	text-align: center;
-	font-size: 14px;
-}
-
-
-/*---------------------------------------------------------------------AboutUsPage*/
-
-
-/*--------------------------------------------PictureRow*/
-
-.portraitPictureHolder {
-	height: 100%;
-	padding: 80px;
-	background-color: #49494b;
-	display: flex;
-	justify-content: space-between;
-}
-
-.portraitPicture {
-	height: 300px;
-	width: 90%;
-}
-
-.portraitPictureOne {
-	background-repeat: no-repeat;
-	background-position: left;
-	vertical-align: top;
-	text-align: center;
-	width: 100%;
-	border-radius: 8px;
-	background-image: url("../images/mia_profilbild.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: inherit;
-	background-color: #908C8C;
-}
-
-.portraitPictureTwo {
-	background-repeat: no-repeat;
-	background-position: center;
-	vertical-align: top;
-	text-align: center;
-	width: 100%;
-	border-radius: 8px;
-	background-image: url("../images/karin_profilbild.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: inherit;
-	background-color: #908C8C;
-}
-
-.portraitPictureThree {
-	background-repeat: no-repeat;
-	background-position: center;
-	vertical-align: top;
-	text-align: center;
-	width: 100%;
-	border-radius: 8px;
-	background-image: url("../images/anette_profilbild.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: inherit;
-	background-color: #908C8C;
-}
-
-.portraitPictureFour {
-	background-repeat: no-repeat;
-	background-position: center;
-	vertical-align: top;
-	text-align: center;
-	width: 100%;
-	border-radius: 8px;
-	background-image: url("../images/mia_m_profilbild.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: inherit;
-	background-color: #908C8C;
-}
-
-
-/*--------------------------------------------CaptionRow*/
-
-.portraitCaption {
-	font-family: 'Montserrat', sans-serif;
-	text-align: center;
-	color: #fafafa;
-}
-
-.portraitCaption h3 {
-	font-family: 'Lora', sans-serif;
-}
-
-.hrPortrait {
-	width: 80%;
-	margin-top: 7%;
-	display: flex;
-	justify-content: center;
-}
-
-
-/*--------------------------------------------Map*/
-
-#map {
-	width: 100%;
-	height: 300px;
-	margin: 100px 0 100px 0;
-}
-
-
-/*--------------------------------------------MediaPage*/
-
-.hrMedia {
-	width: 80%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 10%;
-}
-
-
-/*--------------------------------------------Footer*/
+/*--------------------------------------------------------------------------Footer*/
 
 .footer-wrapper {
 	overflow: hidden;
 	font-family: "Lora", sans-serif;
-	text-shadow: 1px 1px 1px #49494b;
+	text-shadow: 1px 1px 1px #3d3d3e;
 	color: #fafafa;
 	text-align: center;
 	font-size: 15px;
@@ -555,21 +412,21 @@ a:hover {
     padding: 20px !important;
     margin: 10px;
 	font-weight: bold;
-	background-color: #49494b;
+	background-color: #3d3d3e;
 	color: #fafafa;
 }
 
 .bookButtonFooter:hover {
-	background-color: #D1BFA7;
+	background-color: #bcbcbb;
 	color: rgb(250, 250, 250);
 }
 
 .socialIconsFooter i {
 	text-align: center;
-	color: #49494b;
+	color: #3d3d3e;
 	width: 50px;
     font-size: 35px;
 }
 .socialIconsFooter i:hover {
-	color: #bd8c7d;
+	color: #7594ac;
 }
