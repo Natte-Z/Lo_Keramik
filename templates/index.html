@@ -71,36 +71,35 @@
 
 <section class="main-image-section">
     <img src="../images/index_afterheader.png" alt="Beautiful Ceramic Work" class="main-image">
-</section>
 
 <!----------------------------------------------------------------------------------------------------------Description of workshop-->
 <div class="container text-section mt-5">
     <div class="row justify-content-center text-center">
         <!-- Column 1 -->
         <div class="col-12 col-md-4 mb-4">
-            <h5 class="heading">Att dreja:</h5>
+            <h5 class="heading">Att dreja</h5>
             <p class="text">
                 Vi går igenom de olika tekniker som används när man drejar och provar oss fram.
             </p>
         </div>
         <!-- Column 2 -->
         <div class="col-12 col-md-4 mb-4">
-            <h5 class="heading">Beskicka:</h5>
+            <h5 class="heading">Beskicka</h5>
             <p class="text">
                 När leran har torkat och är “läderhård” är det dags att svarva av botten så att den blir rak och stabil. Om man vill kan man då dekorera.
             </p>
         </div>
         <!-- Column 3 -->
         <div class="col-12 col-md-4 mb-4">
-            <h5 class="heading">Bränning:</h5>
+            <h5 class="heading">Bränning</h5>
             <p class="text">
                 Först “skröjbränns” det vi har skapat, sedan är det dags att glasera och slutligen bränner vi vårt verk igen.
             </p>
         </div>
     </div>
     <!-- Call to Action Button -->
-    <div class="text-center mt-4">
-        <a href="https://bokadirekt.se/goto/5484" target="_blank" class="btn bookButton p-3" role="button">Skicka DM</a>
+    <div class="text-center py-4">
+        <a href="https://www.instagram.com/lo_keramik/" target="_blank" class="btn bookButton p-3" role="button">Skicka DM via instagram</a>
     </div>
 </div>
 
@@ -132,22 +131,54 @@
     </div>
 </section>
 
-<!----------------------------------------------------------------------------------------------------------InstagramAPI-->
+<!----------------------------------------------------------------------------------------------------------InstagramAPI
+
 <section class="instagram-section">
     <div class="container">
         <h3 class="text-center mb-4">Follow Me on Instagram</h3>
         <div class="row instagram-feed" id="instagramFeed"></div>
     </div>
 </section>
+-->
+
+
+<!----------------------------------------------------------------------------------------------------------FOOTER-->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Left: Logo -->
+            <div class="footer-left">
+                <img src="../images/logo.jpg" alt="LoKeramik Logo" class="footer-logo">
+            </div>
+
+            <!-- Center: Text -->
+            <div class="footer-center">
+                <p>Keramik i Stockholm</p>
+                <p>&copy; <span id="year"></span> LoKeramik</p>
+            </div>
+
+            <!-- Right: Copyright Notice -->
+            <div class="footer-right">
+                <p>All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript to Auto-Update Year -->
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
 
 <!------------------------------------------------------<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 ----------------------------------------<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-------------Script-->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="../assets/js/buttons.js"></script>
-<script>
+------------Script for instagram API
+
+
     const accessToken = 'YOUR_ACCESS_TOKEN'; // Replace with your Access Token
     const userId = 'YOUR_USER_ID'; // Replace with your User ID
     const limit = 12; // Number of images to display
@@ -171,9 +202,20 @@
         })
         .catch(err => console.error('Error fetching Instagram feed:', err));
     });
- </script>
- 
+
+-->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="../assets/js/buttons.js"></script>
+<!-- jQuery (Required for Bootstrap 4) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Popper.js (Required for Bootstrap's JavaScript Components) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JavaScript (For Navbar Collapse) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
