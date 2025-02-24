@@ -312,8 +312,19 @@ html, body {
     gap: 20px; 
     margin-top: 30px;
     margin-bottom: 30px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap; /* Ensures images stack on smaller screens */
 }
+
+/* Ensure Images Scale Responsively */
+.course-images img {
+    width: 90%; /* Keeps them side-by-side on large screens */
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px;
+    transition: transform 0.3s ease;
+}
+
 /*=========================================
     Kontakt
 =========================================*/
